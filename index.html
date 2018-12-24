@@ -58,6 +58,23 @@
 font-size:12px;
 }
 </style>
+<script>
+    var doc = new jsPDF();
+var specialElementHandlers = {
+    '#editor': function (element, renderer) {
+        return true;
+    }
+};
+
+$('#cmd').click(function () {
+    doc.fromHTML($('#content').html(), 15, 15, {
+        'width': 170,
+            'elementHandlers': specialElementHandlers
+    });
+    doc.save('sample-file.pdf');
+});
+
+</script>
 
 </head>
 <body>
@@ -146,6 +163,7 @@ font-size:12px;
                 <!-- Text Section -->
                 <div class="row">
                     <section class="about-me line col-md-12 padding_30 padbot_45">
+
                     <div class="section-title"><span></span><h2>My Story</h2></div>
                     <p class="top_30">For the last 38 years I am continuing composition of books/texts in the area of farm journalism.  Besides farm journalism I write script for farm speeches telecasted in All India Radio “Vayalum Veedum” (Home and farm) programme.  In this I conduct discourses with agricultural scientists and answer the questions/doubts of farmers.  I have completed composing 146 books related with agriculture and science and still continuing.
                         <br>                        
